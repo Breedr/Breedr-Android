@@ -13,14 +13,18 @@ public class Species {
 	private int id;
 	@DatabaseField
 	private String name;
-	
+	@DatabaseField(foreign = true)
+	private EggType primaryEggType;
+	@DatabaseField(foreign = true)
+	private EggType secondaryEggType;
+
 	//May need intermediate table here
 	
 	//Evolution
 	//id (auto gen)
 	//Species from;
 	//Species to;
-	
+
 	@DatabaseField(foreign = true)
 	private Collection<Species> evolvesInto;
 	@DatabaseField
@@ -47,6 +51,22 @@ public class Species {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public EggType getPrimaryEggType() {
+		return primaryEggType;
+	}
+
+	public void setPrimaryEggType(EggType primaryEggType) {
+		this.primaryEggType = primaryEggType;
+	}
+
+	public EggType getSecondaryEggType() {
+		return secondaryEggType;
+	}
+
+	public void setSecondaryEggType(EggType secondaryEggType) {
+		this.secondaryEggType = secondaryEggType;
 	}
 
 	
