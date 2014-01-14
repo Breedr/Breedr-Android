@@ -11,6 +11,7 @@ package ed.george.breedr.db.pokemon;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import ed.george.breedr.db.trainer.Trainer;
 import ed.george.breedr.pokemon.core.Constants.Gender;
 
 @DatabaseTable(tableName = "pokemon")
@@ -49,14 +50,23 @@ public class Pokemon {
 	//@DatabaseField(canBeNull = false)
 	//Nature nature
 	
+	//May need relationship table
 	//Pokemon mother
 	//Pokemon father
 	
-	//@DatabaseField(canBeNull = false)
-	//Trainer trainer
+	@DatabaseField(canBeNull = false)
+	Trainer trainer;
 	
 	//Item heldItem
 	
+	public Trainer getTrainer() {
+		return trainer;
+	}
+
+	public void setTrainer(Trainer trainer) {
+		this.trainer = trainer;
+	}
+
 	public int getID() {
 		return id;
 	}
