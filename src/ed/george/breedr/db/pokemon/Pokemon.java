@@ -1,3 +1,11 @@
+/**
+ * Pokemon.java
+ * Breedr
+ * 
+ * Created by Ed George on Jan 13, 2014
+ * Released under The MIT License (MIT)
+ * Copyright (c) 2014 Breedr
+ */
 package ed.george.breedr.db.pokemon;
 
 import com.j256.ormlite.field.DatabaseField;
@@ -8,7 +16,7 @@ import ed.george.breedr.pokemon.core.Constants.Gender;
 @DatabaseTable(tableName = "pokemon")
 public class Pokemon {
 
-	@DatabaseField(index = true, generatedId = true)
+	@DatabaseField(generatedId = true)
 	private int id;
 	@DatabaseField(canBeNull = false)
 	private Gender gender;
@@ -29,8 +37,15 @@ public class Pokemon {
 	private boolean perfectSpeed;
 	
 	//Species species
+	
+	//Nature nature
+	
+	//Pokemon mother
+	//Pokemon father
+	
 	//Trainer trainer
-	//
+	
+	//Item heldItem
 	
 	public int getID() {
 		return id;
