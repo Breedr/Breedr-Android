@@ -18,11 +18,18 @@ public class Pokemon {
 
 	@DatabaseField(generatedId = true)
 	private int id;
+	@DatabaseField
+	private int pokemonId;
 	@DatabaseField(canBeNull = false)
 	private Gender gender;
 	@DatabaseField(canBeNull = false)
 	private int level;
-	
+	@DatabaseField
+	private String nickname;
+	@DatabaseField
+	private boolean shiny;
+	@DatabaseField
+	private boolean pokerus;
 	@DatabaseField
 	private boolean perfectHP;
 	@DatabaseField
@@ -36,13 +43,16 @@ public class Pokemon {
 	@DatabaseField
 	private boolean perfectSpeed;
 	
-	//Species species
 	
+    //@DatabaseField(canBeNull = false)
+	//Species species
+	//@DatabaseField(canBeNull = false)
 	//Nature nature
 	
 	//Pokemon mother
 	//Pokemon father
 	
+	//@DatabaseField(canBeNull = false)
 	//Trainer trainer
 	
 	//Item heldItem
@@ -110,5 +120,30 @@ public class Pokemon {
 	public void setPerfectHP(boolean perfectHP) {
 		this.perfectHP = perfectHP;
 	}
+	
+	public boolean isShiny() {
+		return shiny;
+	}
+
+	public void setShiny(boolean shiny) {
+		this.shiny = shiny;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public int getPokemonId() {
+		return pokemonId;
+	}
+
+	public void setPokemonId(int pokemonId) {
+		this.pokemonId = pokemonId;
+	}
+
 	
 }
