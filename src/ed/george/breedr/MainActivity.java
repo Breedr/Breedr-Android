@@ -15,6 +15,10 @@ import android.view.Menu;
 public class MainActivity extends Activity {
 
 	//https://code.google.com/p/iosched/source/browse/android/src/main/java/com/google/android/apps/iosched/ui/HomeActivity.java
+	//http://pokeapi.co/
+	//https://github.com/veekun/pokedex/tree/master/pokedex/data/csv
+	//http://www.convertcsv.com/csv-to-json.htm
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
