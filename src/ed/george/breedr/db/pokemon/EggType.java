@@ -9,7 +9,7 @@ public class EggType {
 	@DatabaseField(generatedId = true)
 	private int id;
 	@DatabaseField(canBeNull = true)
-	private String name;
+	private String identifier;
 	@DatabaseField
 	private boolean canBreed;
 
@@ -22,11 +22,11 @@ public class EggType {
 	}
 
 	public String getName() {
-		return name;
+		return identifier;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.identifier = name;
 	}
 
 	public boolean canBreed() {

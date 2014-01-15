@@ -19,6 +19,7 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import ed.george.breedr.db.pokemon.EggType;
 import ed.george.breedr.db.pokemon.Pokemon;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
@@ -61,11 +62,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	}
 
 	private void createTables(ConnectionSource connectionSource) throws SQLException {
-		TableUtils.createTableIfNotExists(connectionSource, Pokemon.class);
+		TableUtils.createTableIfNotExists(connectionSource, EggType.class);
 	}
 
 	private void dropTables(ConnectionSource connectionSource) throws SQLException {
-		TableUtils.dropTable(connectionSource, Pokemon.class, true);
+		TableUtils.dropTable(connectionSource, EggType.class, true);
 	}
 
 	@Override

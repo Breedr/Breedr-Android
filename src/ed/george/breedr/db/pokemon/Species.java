@@ -1,7 +1,5 @@
 package ed.george.breedr.db.pokemon;
 
-import java.util.Collection;
-
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -12,12 +10,14 @@ public class Species {
 	@DatabaseField(id = true)
 	private int id;
 	@DatabaseField
-	private String name;
-	@DatabaseField(foreign = true)
-	private EggType primaryEggType;
-	@DatabaseField(foreign = true)
-	private EggType secondaryEggType;
-
+	private String identifier;
+	@DatabaseField
+	private double maleRatio;
+	@DatabaseField
+	private double femaleRatio;
+	
+	
+	
 	//May need intermediate table here
 	
 	//Evolution
@@ -25,48 +25,31 @@ public class Species {
 	//Species from;
 	//Species to;
 
-	@DatabaseField(foreign = true)
-	private Collection<Species> evolvesInto;
-	@DatabaseField
-	private Species evolvesFrom;
-
-	public Collection<Species> getEvolvesInto() {
-		return evolvesInto;
-	}
-
-	public void setEvolvesInto(Collection<Species> evolvesInto) {
-		this.evolvesInto = evolvesInto;
-	}
-
-	public Species getEvolvesFrom() {
-		return evolvesFrom;
-	}
-
-	public void setEvolvesFrom(Species evolvesFrom) {
-		this.evolvesFrom = evolvesFrom;
-	}
+	
+	
 	public String getName() {
-		return name;
+		return identifier;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.identifier = name;
 	}
 
-	public EggType getPrimaryEggType() {
-		return primaryEggType;
+	
+	public double getFemaleRatio() {
+		return femaleRatio;
 	}
 
-	public void setPrimaryEggType(EggType primaryEggType) {
-		this.primaryEggType = primaryEggType;
+	public void setFemaleRatio(double femaleRatio) {
+		this.femaleRatio = femaleRatio;
 	}
 
-	public EggType getSecondaryEggType() {
-		return secondaryEggType;
+	public double getMaleRatio() {
+		return maleRatio;
 	}
 
-	public void setSecondaryEggType(EggType secondaryEggType) {
-		this.secondaryEggType = secondaryEggType;
+	public void setMaleRatio(double maleRatio) {
+		this.maleRatio = maleRatio;
 	}
 
 	
