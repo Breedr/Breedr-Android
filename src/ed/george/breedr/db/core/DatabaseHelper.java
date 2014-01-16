@@ -20,7 +20,6 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import ed.george.breedr.db.pokemon.EggType;
-import ed.george.breedr.db.pokemon.Pokemon;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
