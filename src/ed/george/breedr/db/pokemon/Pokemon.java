@@ -43,22 +43,22 @@ public class Pokemon {
 	private boolean perfectSpecialDefense;
 	@DatabaseField
 	private boolean perfectSpeed;
-	
-	
-    //@DatabaseField(canBeNull = false)
+
+
+	//@DatabaseField(canBeNull = false)
 	//Species species
 	//@DatabaseField(canBeNull = false)
 	//Nature nature
-	
+
 	//May need relationship table
 	//Pokemon mother
 	//Pokemon father
-	
-	@DatabaseField(canBeNull = false)
+
+	//	@DatabaseField(canBeNull = false)
 	Trainer trainer;
-	
+
 	//Item heldItem
-	
+
 	public Trainer getTrainer() {
 		return trainer;
 	}
@@ -130,7 +130,7 @@ public class Pokemon {
 	public void setPerfectHP(boolean perfectHP) {
 		this.perfectHP = perfectHP;
 	}
-	
+
 	public boolean isShiny() {
 		return shiny;
 	}
@@ -155,5 +155,5 @@ public class Pokemon {
 		this.pokemonId = pokemonId;
 	}
 
-	
+
 }

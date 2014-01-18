@@ -10,7 +10,7 @@ public class Species {
 	@DatabaseField(id = true)
 	private int id;
 	@DatabaseField
-	private String identifier;
+	private String name;
 	@DatabaseField
 	private double maleRatio;
 	@DatabaseField
@@ -28,11 +28,11 @@ public class Species {
 	
 	
 	public String getName() {
-		return identifier;
+		return name;
 	}
 
 	public void setName(String name) {
-		this.identifier = name;
+		this.name = name;
 	}
 
 	
@@ -50,6 +50,14 @@ public class Species {
 
 	public void setMaleRatio(double maleRatio) {
 		this.maleRatio = maleRatio;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	
