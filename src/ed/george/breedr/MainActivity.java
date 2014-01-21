@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
 	//https://github.com/veekun/pokedex/tree/master/pokedex/data/csv
 	//http://www.convertcsv.com/csv-to-json.htm
 	//	https://github.com/nhaarman/ListViewAnimations
+        // http://i.imgur.com/KV6uAxk.png
 
 	private Dao<Species,Integer> spd;
 	private Dao<EggType,Integer> etd;
