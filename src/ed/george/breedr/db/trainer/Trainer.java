@@ -1,5 +1,6 @@
 package ed.george.breedr.db.trainer;
 
+import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import ed.george.breedr.pokemon.core.Constants.Gender;
@@ -7,13 +8,14 @@ import ed.george.breedr.pokemon.core.Constants.Gender;
 @DatabaseTable(tableName = "trainer")
 public class Trainer {
 
+	@DatabaseField(id = true)
 	private int id;
 	
+	@DatabaseField
 	private String name;
 	
+	@DatabaseField
 	private Gender gender;
-	
-	
 
 	public int getId() {
 		return id;
