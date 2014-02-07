@@ -8,12 +8,11 @@
  */
 package ed.george.breedr;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import ed.george.breedr.db.core.InitialLoadTask;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
 	//https://code.google.com/p/iosched/source/browse/android/src/main/java/com/google/android/apps/iosched/ui/HomeActivity.java
 	//http://pokeapi.co/
@@ -32,12 +31,6 @@ public class MainActivity extends Activity {
 		new InitialLoadTask(this).execute();
 
 	}
-
-
-
-
-
-
 
 
 	@Override

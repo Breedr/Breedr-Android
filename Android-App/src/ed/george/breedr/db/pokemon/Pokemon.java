@@ -26,6 +26,8 @@ public class Pokemon {
 	@DatabaseField(canBeNull = false)
 	private int level;
 	@DatabaseField
+	private Region region;
+	@DatabaseField
 	private String nickname;
 	@DatabaseField
 	private boolean shiny;
@@ -153,6 +155,46 @@ public class Pokemon {
 
 	public void setPokemonId(int pokemonId) {
 		this.pokemonId = pokemonId;
+	}
+
+	//HELPER Methods
+
+	public int getPerfectIVCount(){
+
+		int ivs  = 0;
+
+		if(perfectHP)
+			ivs++;
+
+		if(perfectAttack)
+			ivs++;
+
+		if(perfectDefense)
+			ivs++;
+
+		if(perfectSpecialAttack)
+			ivs++;
+
+		if(perfectSpecialDefense)
+			ivs++;
+
+		if(perfectSpeed)
+			ivs++;
+
+		return ivs;
+	}
+
+	public Region getRegion() {
+		return region;
+	}
+
+	public void setRegion(Region region) {
+		this.region = region;
+	}
+
+	//TODO: confirm these
+	public enum Region {
+	    US, KOR, JPN, EUR 
 	}
 
 

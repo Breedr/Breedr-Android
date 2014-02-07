@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
 
 public class Utils {
 
@@ -52,5 +53,13 @@ public class Utils {
 		return null;
 
 	}
+	
+	
+	public static boolean isTablet(Context context) {
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK)
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+    }
+	
 	
 }
