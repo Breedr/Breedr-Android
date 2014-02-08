@@ -15,4 +15,11 @@ public class Constants {
 		MALE, FEMALE, GENDERLESS	
 	}
 
+	//Generation VI 
+	//Source http://bulbapedia.bulbagarden.net/wiki/Breeding#Generation_VI
+	public static final double MASUDA_METHOD_CHANCE = 6.0f/8192.0f;
+	
+	public static final double SHINY_CHARM_HATCH_SAME_REGION = 3.0f/8192.0f;
+	public static final double SHINY_CHARM_HATCH_MASUDA = 8.0f/8192.0f;
+	
 }

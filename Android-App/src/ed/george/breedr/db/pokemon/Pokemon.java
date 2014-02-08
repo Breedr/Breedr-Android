@@ -20,7 +20,7 @@ public class Pokemon {
 	@DatabaseField(generatedId = true)
 	private int id;
 	@DatabaseField
-	private int pokemonId;
+	private int nationalDexId;
 	@DatabaseField(canBeNull = false)
 	private Gender gender;
 	@DatabaseField(canBeNull = false)
@@ -149,12 +149,12 @@ public class Pokemon {
 		this.nickname = nickname;
 	}
 
-	public int getPokemonId() {
-		return pokemonId;
+	public int getNationalDexNumber() {
+		return nationalDexId;
 	}
 
-	public void setPokemonId(int pokemonId) {
-		this.pokemonId = pokemonId;
+	public void setNationalDexNumber(int nationalDexId) {
+		this.nationalDexId = nationalDexId;
 	}
 
 	//HELPER Methods
@@ -184,17 +184,17 @@ public class Pokemon {
 		return ivs;
 	}
 
+	//TODO: confirm these
+	public enum Region {
+	    ENG, SPA, FRE, GER, ITA, JAP, KOR
+	}
+	
 	public Region getRegion() {
 		return region;
 	}
 
 	public void setRegion(Region region) {
 		this.region = region;
-	}
-
-	//TODO: confirm these
-	public enum Region {
-	    US, KOR, JPN, EUR 
 	}
 
 
