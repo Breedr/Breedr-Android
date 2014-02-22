@@ -8,6 +8,8 @@
  */
 package ed.george.breedr.db.pokemon;
 
+import java.util.ArrayList;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -158,6 +160,20 @@ public class Pokemon {
 	}
 
 	//HELPER Methods
+	
+	public ArrayList<Boolean> getIVs(){
+		
+		ArrayList<Boolean> ivs = new ArrayList<Boolean>();
+		
+		ivs.add(perfectHP);
+		ivs.add(perfectAttack);
+		ivs.add(perfectDefense);
+		ivs.add(perfectSpecialAttack);
+		ivs.add(perfectSpecialDefense);
+		ivs.add(perfectSpeed);
+		
+		return ivs;	
+	}
 
 	public int getPerfectIVCount(){
 
