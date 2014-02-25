@@ -52,13 +52,13 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 			final ActionBar actionBar = getSupportActionBar();
 			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 			actionBar.addTab(actionBar.newTab()
-					.setText("Test")
+					.setText("Breeding")
 					.setTabListener(this));
 			actionBar.addTab(actionBar.newTab()
-					.setText("Test1")
+					.setText("My Pokémon")
 					.setTabListener(this));
 			actionBar.addTab(actionBar.newTab()
-					.setText("Test2")
+					.setText("Other")
 					.setTabListener(this));
 			//			actionBar.addTab(actionBar.newTab()
 			//					.setText(R.string.title_explore)
