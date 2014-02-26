@@ -1,5 +1,13 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:breedr="http://schemas.android.com/apk/res-auto" >
 
+    <item android:id="@+id/menu_search"
+        android:icon="@drawable/ic_action_search"
+        android:title="@string/description_search"
+        android:orderInCategory="0"
+        breedr:actionViewClass="android.widget.SearchView"
+        breedr:showAsAction="ifRoom|collapseActionView" />
+    
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

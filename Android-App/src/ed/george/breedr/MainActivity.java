@@ -49,23 +49,19 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 			//			mViewPager.setPageMargin(getResources()
 			//					.getDimensionPixelSize(R.dimen.page_margin_width));
 
+			
+			//http://developer.android.com/training/basics/actionbar/adding-buttons.html
 			final ActionBar actionBar = getSupportActionBar();
 			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 			actionBar.addTab(actionBar.newTab()
-					.setText("Breeding")
+					.setText(R.string.breeding_fragment)
 					.setTabListener(this));
 			actionBar.addTab(actionBar.newTab()
-					.setText("My Pokémon")
+					.setText(R.string.pkm_fragment)
 					.setTabListener(this));
 			actionBar.addTab(actionBar.newTab()
-					.setText("Other")
+					.setText(R.string.other_fragment)
 					.setTabListener(this));
-			//			actionBar.addTab(actionBar.newTab()
-			//					.setText(R.string.title_explore)
-			//					.setTabListener(this));
-			//			actionBar.addTab(actionBar.newTab()
-			//					.setText(R.string.title_stream)
-			//					.setTabListener(this));
 			setHasTabs();
 		}
 
