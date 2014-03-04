@@ -10,7 +10,6 @@ package ed.george.breedr;
 
 
 
-import com.crashlytics.android.Crashlytics;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,13 +19,21 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
 
+import com.crashlytics.android.Crashlytics;
+import com.j256.ormlite.dao.Dao;
+
+import ed.george.breedr.db.core.DatabaseHelper;
+import ed.george.breedr.db.core.InitialLoadTask;
+import ed.george.breedr.db.pokemon.EggType;
+import ed.george.breedr.db.pokemon.Species;
+
 public class MainActivity extends BaseActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
 
 	//https://code.google.com/p/iosched/source/browse/android/src/main/java/com/google/android/apps/iosched/ui/HomeActivity.java
 	//http://pokeapi.co/
 	//https://github.com/veekun/pokedex/tree/master/pokedex/data/csv
 	//http://www.convertcsv.com/csv-to-json.htm
-	//	https://github.com/nhaarman/ListViewAnimations
+	//https://github.com/nhaarman/ListViewAnimations
 	// http://i.imgur.com/KV6uAxk.png
 	//https://github.com/soberstadt/GeneralHttpAndroidExample/tree/master/src/com/spencero/example/generalHttpRequest
 
@@ -51,7 +58,7 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 			//			mViewPager.setPageMargin(getResources()
 			//					.getDimensionPixelSize(R.dimen.page_margin_width));
 
-			
+
 			//http://developer.android.com/training/basics/actionbar/adding-buttons.html
 			final ActionBar actionBar = getSupportActionBar();
 			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -76,7 +83,35 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 	protected void onStart() {
 		super.onStart();
 
-		// new InitialLoadTask(this).execute();
+		loadDatabaseIfNeeded();
+
+
+	}
+
+	private void loadDatabaseIfNeeded() {
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				try{
+					Dao<Species, Integer> sd = DatabaseHelper.getInstance(getApplicationContext()).getDao(Species.class);
+					Dao<EggType, Integer> etd = DatabaseHelper.getInstance(getApplicationContext()).getDao(EggType.class);
+
+					if(sd.queryBuilder().countOf() == 0 || etd.queryBuilder().countOf() == 0){
+					
+						runOnUiThread(new Runnable() {
+							
+							@Override
+							public void run() {
+								new InitialLoadTask(MainActivity.this).execute();
+							}
+						});						
+					}
+				}catch(Exception e){
+					//TODO: show dialog here
+				}
+			}
+		}).start();
 	}
 
 	@Override
@@ -132,7 +167,7 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 			//	            switch (position) {
 			//	                case 0:
 			//	                    return new ScheduleFragment();
-			//
+			//ED
 			//	                case 1:
 			//	                    return new ExploreFragment();
 			//

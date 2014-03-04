@@ -45,8 +45,8 @@ public class InitialLoadTask extends AsyncTask<Void, Void, String> {
 
 		try{
 
-		spd = DatabaseHelper.getDatabaseHelperInstance(context).getDao(Species.class);
-		etd = DatabaseHelper.getDatabaseHelperInstance(context).getDao(EggType.class);
+		spd = DatabaseHelper.getInstance(context).getDao(Species.class);
+		etd = DatabaseHelper.getInstance(context).getDao(EggType.class);
 
 		spd.callBatchTasks(new Callable<Void>() {
 			@Override
