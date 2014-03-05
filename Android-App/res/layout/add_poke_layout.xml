@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/breedr_gradient"
@@ -35,9 +35,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:singleLine="true"
                 android:hint="Species"
-                android:maxLength="32" />
+                android:inputType=""
+                android:maxLength="32"
+                android:singleLine="true" />
         </LinearLayout>
 
         <LinearLayout
@@ -52,11 +53,14 @@
                 android:layout_weight="2"
                 android:text="Level:" />
 
-            <Spinner
-                android:id="@+id/pokemon_level_spinner"
+            <EditText
+                android:id="@+id/pokemon_level_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLength="3"
+                android:singleLine="true" />
         </LinearLayout>
 
         <TextView
@@ -86,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Nickname" />
+                android:hint="Region" />
         </LinearLayout>
 
         <TextView
@@ -113,10 +117,5 @@
                 android:text="Pokerus" />
         </LinearLayout>
     </LinearLayout>
-<ListView
-        android:id="@android:id/list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:cacheColorHint="@android:color/white"
-        android:drawSelectorOnTop="false" />
-</LinearLayout>
+
+</ScrollView>

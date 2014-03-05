@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-import ed.george.breedr.db.trainer.Trainer;
 import ed.george.breedr.pokemon.core.Constants.Gender;
 
 @DatabaseTable(tableName = "pokemon")
@@ -22,7 +21,7 @@ public class Pokemon {
 	@DatabaseField(generatedId = true)
 	private int id;
 	//TODO: Make this foreign 
-	@DatabaseField(canBeNull = false)
+	@DatabaseField(canBeNull = false, foreign = true)
 	private Species species;
 	@DatabaseField(canBeNull = false)
 	private Gender gender;
@@ -49,8 +48,8 @@ public class Pokemon {
 	@DatabaseField
 	private boolean perfectSpeed;
 	//TODO: make this foreign 
-	@DatabaseField(canBeNull = false)
-	Trainer trainer;
+	//@DatabaseField(canBeNull = false)
+	//Trainer trainer;
 
 	
 	//@DatabaseField(canBeNull = false)
@@ -64,13 +63,13 @@ public class Pokemon {
 
 	//Item heldItem
 
-	public Trainer getTrainer() {
-		return trainer;
-	}
-
-	public void setTrainer(Trainer trainer) {
-		this.trainer = trainer;
-	}
+//	public Trainer getTrainer() {
+//		return trainer;
+//	}
+//
+//	public void setTrainer(Trainer trainer) {
+//		this.trainer = trainer;
+//	}
 
 	public int getID() {
 		return id;
@@ -214,7 +213,18 @@ public class Pokemon {
 	}
 
 	public enum Region {
-	    ENG, SPA, FRE, GER, ITA, JAP, KOR
+	    ENG, SPA, FRE, GER, ITA, JAP, KOR;
+	    
+	    public static String[] names() {
+	        Region[] states = values();
+	        String[] names = new String[states.length];
+
+	        for (int i = 0; i < states.length; i++) {
+	            names[i] = states[i].name();
+	        }
+
+	        return names;
+	    }
 	}
 
 }

@@ -98,9 +98,9 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 					Dao<EggType, Integer> etd = DatabaseHelper.getInstance(getApplicationContext()).getDao(EggType.class);
 
 					if(sd.queryBuilder().countOf() == 0 || etd.queryBuilder().countOf() == 0){
-					
+
 						runOnUiThread(new Runnable() {
-							
+
 							@Override
 							public void run() {
 								new InitialLoadTask(MainActivity.this).execute();
@@ -164,17 +164,15 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 
 		@Override
 		public Fragment getItem(int position) {
-			//	            switch (position) {
-			//	                case 0:
-			//	                    return new ScheduleFragment();
-			//ED
-			//	                case 1:
-			//	                    return new ExploreFragment();
-			//
-			//	                case 2:
-			//	                    return (mSocialStreamFragment = new SocialStreamFragment());
-			//	            }
-			return new PokeListFragment();
+			switch (position) {
+
+			case 1:
+				return new AddPokemonFragment();
+
+			default:
+				return new PokeListFragment();
+			}
+
 		}
 
 		@Override

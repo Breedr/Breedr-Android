@@ -12,11 +12,33 @@ package ed.george.breedr.pokemon.core;
 public class Constants {
 
 	public enum Gender{	
-		MALE, FEMALE, GENDERLESS	
+		MALE, FEMALE, GENDERLESS;
+		
+		public static String[] names() {
+		    Gender[] states = values();
+		    String[] names = new String[states.length];
+
+		    for (int i = 0; i < states.length; i++) {
+		        names[i] = states[i].name();
+		    }
+
+		    return names;
+		}
 	}
 	
 	public static enum Stat{
-		HP, ATTACK, DEFENSE, SPECIAL_ATTACK, SPECIAL_DEFENSE, SPEED
+		HP, ATTACK, DEFENSE, SPECIAL_ATTACK, SPECIAL_DEFENSE, SPEED;
+		
+		public static String[] names() {
+		    Stat[] states = values();
+		    String[] names = new String[states.length];
+
+		    for (int i = 0; i < states.length; i++) {
+		        names[i] = states[i].name();
+		    }
+
+		    return names;
+		}
 	}
 
 	//Generation VI 
