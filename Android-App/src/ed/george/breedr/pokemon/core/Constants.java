@@ -14,6 +14,10 @@ public class Constants {
 	public enum Gender{	
 		MALE, FEMALE, GENDERLESS	
 	}
+	
+	public static enum Stat{
+		HP, ATTACK, DEFENSE, SPECIAL_ATTACK, SPECIAL_DEFENSE, SPEED
+	}
 
 	//Generation VI 
 	//Source http://bulbapedia.bulbagarden.net/wiki/Breeding#Generation_VI

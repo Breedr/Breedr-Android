@@ -1,0 +1,122 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/breedr_gradient"
+    android:orientation="vertical"
+    android:padding="15dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <TextView
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD POKEMON" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Species:" />
+
+            <AutoCompleteTextView
+                android:id="@+id/add_pokemon_species"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:hint="Species"
+                android:maxLength="32" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Level:" />
+
+            <Spinner
+                android:id="@+id/pokemon_level_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <TextView
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="INFORMATION" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/add_pokemon_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Nickname"
+                android:inputType="text"
+                android:maxLength="32"
+                android:singleLine="true" />
+
+            <Spinner
+                android:id="@+id/add_pokemon_region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Nickname" />
+        </LinearLayout>
+
+        <TextView
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="OTHER" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Shiny Pokemon" />
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Pokerus" />
+        </LinearLayout>
+    </LinearLayout>
+<ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/white"
+        android:drawSelectorOnTop="false" />
+</LinearLayout>

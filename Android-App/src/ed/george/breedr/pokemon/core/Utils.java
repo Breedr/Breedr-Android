@@ -24,7 +24,7 @@ public class Utils {
 		
 		return instance;
 		
-	}
+	} 
 	
 	public String loadJSONToString(Context ctx, String filename) throws IOException{
 

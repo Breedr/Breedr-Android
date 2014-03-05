@@ -21,11 +21,12 @@ public class Pokemon {
 
 	@DatabaseField(generatedId = true)
 	private int id;
-	@DatabaseField
-	private int nationalDexId;
+	//TODO: Make this foreign 
+	@DatabaseField(canBeNull = false)
+	private Species species;
 	@DatabaseField(canBeNull = false)
 	private Gender gender;
-	@DatabaseField(canBeNull = false)
+	@DatabaseField(defaultValue = "1")
 	private int level;
 	@DatabaseField
 	private Region region;
@@ -47,10 +48,11 @@ public class Pokemon {
 	private boolean perfectSpecialDefense;
 	@DatabaseField
 	private boolean perfectSpeed;
+	//TODO: make this foreign 
+	@DatabaseField(canBeNull = false)
+	Trainer trainer;
 
-
-	//@DatabaseField(canBeNull = false)
-	//Species species
+	
 	//@DatabaseField(canBeNull = false)
 	//Nature nature
 
@@ -58,8 +60,7 @@ public class Pokemon {
 	//Pokemon mother
 	//Pokemon father
 
-	//	@DatabaseField(canBeNull = false)
-	Trainer trainer;
+	
 
 	//Item heldItem
 
@@ -151,14 +152,22 @@ public class Pokemon {
 		this.nickname = nickname;
 	}
 
-	public int getNationalDexNumber() {
-		return nationalDexId;
+	public Region getRegion() {
+		return region;
 	}
 
-	public void setNationalDexNumber(int nationalDexId) {
-		this.nationalDexId = nationalDexId;
+	public void setRegion(Region region) {
+		this.region = region;
 	}
 
+	public Species getSpecies() {
+		return species;
+	}
+
+	public void setSpecies(Species species) {
+		this.species = species;
+	}
+	
 	//HELPER Methods
 	
 	public ArrayList<Boolean> getIVs(){
@@ -173,6 +182,10 @@ public class Pokemon {
 		ivs.add(perfectSpeed);
 		
 		return ivs;	
+	}
+	
+	public int getNationalDexNumber() {
+		return species.getId();
 	}
 
 	public int getPerfectIVCount(){
@@ -200,18 +213,8 @@ public class Pokemon {
 		return ivs;
 	}
 
-	//TODO: confirm these
 	public enum Region {
 	    ENG, SPA, FRE, GER, ITA, JAP, KOR
 	}
-	
-	public Region getRegion() {
-		return region;
-	}
-
-	public void setRegion(Region region) {
-		this.region = region;
-	}
-
 
 }
