@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:breedr="http://schemas.android.com/apk/res-auto" >
+
+    <item android:id="@+id/add_menu_save"
+        android:icon="@drawable/ic_menu_save"
+        android:title="@string/description_save"
+        android:orderInCategory="0"
+        breedr:showAsAction="ifRoom|collapseActionView" />
+    
+
+</menu>

@@ -31,7 +31,7 @@ public class AddPokemonFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.add_poke_layout, null);
+		View view = inflater.inflate(R.layout.add_poke_fragment, null);
 		level = (EditText) view.findViewById(R.id.pokemon_level_edit);
 		nickname = (EditText) view.findViewById(R.id.add_pokemon_nickname);
 		species = (AutoCompleteTextView) view.findViewById(R.id.add_pokemon_species);
@@ -86,7 +86,9 @@ public class AddPokemonFragment extends Fragment {
 		new Thread(new Runnable() {
 			public void run() {
 
-				try{
+				try{	
+					//TODO: make this more efficient
+					
 					Dao<Species, Integer> sd = DatabaseHelper.getInstance(getActivity()).getDao(Species.class);
 					List<Species> species_list = sd.queryForAll();
 					
@@ -105,16 +107,27 @@ public class AddPokemonFragment extends Fragment {
 							species.setAdapter(speciesAdapter);
 						}
 					});
-
 					
 				}catch(Exception e){
-					e.printStackTrace();
-					
+					e.printStackTrace();	
 				}
-
-
 			}
 		}).start();
 	}
-
+	
+	
+	private void createPokemon(final Pokemon pkm){
+		new Thread(new Runnable() {
+			public void run() {
+				
+				if(Pokemon.createPokemon(pkm, getActivity())){
+					//TODO: Pokemon added
+				}else{
+					//TODO: error handling
+				}
+				
+			}
+		}).start();
+	}
+	
 }

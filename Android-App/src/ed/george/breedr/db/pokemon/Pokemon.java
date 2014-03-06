@@ -8,11 +8,16 @@
  */
 package ed.george.breedr.db.pokemon;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import android.content.Context;
+
+import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import ed.george.breedr.db.core.DatabaseHelper;
 import ed.george.breedr.pokemon.core.Constants.Gender;
 
 @DatabaseTable(tableName = "pokemon")
@@ -51,7 +56,7 @@ public class Pokemon {
 	//@DatabaseField(canBeNull = false)
 	//Trainer trainer;
 
-	
+
 	//@DatabaseField(canBeNull = false)
 	//Nature nature
 
@@ -59,17 +64,17 @@ public class Pokemon {
 	//Pokemon mother
 	//Pokemon father
 
-	
+
 
 	//Item heldItem
 
-//	public Trainer getTrainer() {
-//		return trainer;
-//	}
-//
-//	public void setTrainer(Trainer trainer) {
-//		this.trainer = trainer;
-//	}
+	//	public Trainer getTrainer() {
+	//		return trainer;
+	//	}
+	//
+	//	public void setTrainer(Trainer trainer) {
+	//		this.trainer = trainer;
+	//	}
 
 	public int getID() {
 		return id;
@@ -166,23 +171,37 @@ public class Pokemon {
 	public void setSpecies(Species species) {
 		this.species = species;
 	}
-	
+
 	//HELPER Methods
-	
+
+	public static boolean createPokemon(Pokemon pkm, Context ctx){
+
+		try {
+			Dao<Pokemon, Integer> pd = DatabaseHelper.getInstance(ctx).getDao(Pokemon.class);
+			pd.create(pkm);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+		return true;
+
+	}
+
 	public ArrayList<Boolean> getIVs(){
-		
+
 		ArrayList<Boolean> ivs = new ArrayList<Boolean>();
-		
+
 		ivs.add(perfectHP);
 		ivs.add(perfectAttack);
 		ivs.add(perfectDefense);
 		ivs.add(perfectSpecialAttack);
 		ivs.add(perfectSpecialDefense);
 		ivs.add(perfectSpeed);
-		
+
 		return ivs;	
 	}
-	
+
 	public int getNationalDexNumber() {
 		return species.getId();
 	}
@@ -213,18 +232,18 @@ public class Pokemon {
 	}
 
 	public enum Region {
-	    ENG, SPA, FRE, GER, ITA, JAP, KOR;
-	    
-	    public static String[] names() {
-	        Region[] states = values();
-	        String[] names = new String[states.length];
+		ENG, SPA, FRE, GER, ITA, JAP, KOR;
 
-	        for (int i = 0; i < states.length; i++) {
-	            names[i] = states[i].name();
-	        }
+		public static String[] names() {
+			Region[] states = values();
+			String[] names = new String[states.length];
 
-	        return names;
-	    }
+			for (int i = 0; i < states.length; i++) {
+				names[i] = states[i].name();
+			}
+
+			return names;
+		}
 	}
 
 }

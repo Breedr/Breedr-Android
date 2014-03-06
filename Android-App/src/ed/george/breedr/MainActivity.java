@@ -10,6 +10,7 @@ package ed.george.breedr;
 
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,8 +19,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
+import android.view.MenuItem;
 
-import com.crashlytics.android.Crashlytics;
 import com.j256.ormlite.dao.Dao;
 
 import ed.george.breedr.db.core.DatabaseHelper;
@@ -43,7 +44,7 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Crashlytics.start(this);
+		//Crashlytics.start(this);
 		setContentView(R.layout.activity_main);
 
 		FragmentManager fm = getSupportFragmentManager();
@@ -80,12 +81,22 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 	}
 
 	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	
+	    case R.id.menu_add_pokemon:
+	    	startActivity(new Intent(getApplicationContext(), AddNewPokemonActivity.class));
+	    	return true;
+	    }
+	    return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
 	protected void onStart() {
 		super.onStart();
 
 		loadDatabaseIfNeeded();
-
-
+		
 	}
 
 	private void loadDatabaseIfNeeded() {
@@ -166,8 +177,8 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 		public Fragment getItem(int position) {
 			switch (position) {
 
-			case 1:
-				return new AddPokemonFragment();
+//			case 1:
+//				return new AddPokemonFragment();
 
 			default:
 				return new PokeListFragment();
