@@ -16,6 +16,7 @@ import android.widget.Spinner;
 
 import com.j256.ormlite.dao.Dao;
 
+import ed.george.breedr.R;
 import ed.george.breedr.db.core.DatabaseHelper;
 import ed.george.breedr.db.pokemon.Pokemon;
 import ed.george.breedr.db.pokemon.Species;
@@ -31,7 +32,7 @@ public class AddPokemonFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.add_poke_fragment, null);
+		View view = inflater.inflate(R.layout.fragment_add_poke, null);
 		level = (EditText) view.findViewById(R.id.pokemon_level_edit);
 		nickname = (EditText) view.findViewById(R.id.add_pokemon_nickname);
 		species = (AutoCompleteTextView) view.findViewById(R.id.add_pokemon_species);

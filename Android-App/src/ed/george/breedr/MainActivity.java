@@ -23,6 +23,7 @@ import android.view.MenuItem;
 
 import com.j256.ormlite.dao.Dao;
 
+import ed.george.breedr.R;
 import ed.george.breedr.db.core.DatabaseHelper;
 import ed.george.breedr.db.core.InitialLoadTask;
 import ed.george.breedr.db.pokemon.EggType;

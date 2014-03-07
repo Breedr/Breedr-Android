@@ -1,5 +1,6 @@
 package ed.george.breedr;
 
+import ed.george.breedr.R;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
