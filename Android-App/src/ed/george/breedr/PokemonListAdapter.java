@@ -53,9 +53,8 @@ public class PokemonListAdapter extends BaseAdapter{
 
 
 			PokemonListViewHolder viewHolder = new PokemonListViewHolder();
-			viewHolder.text = (TextView) rowView.findViewById(R.id.TextView01);
-			viewHolder.image = (ImageView) rowView
-					.findViewById(R.id.ImageView01);
+			viewHolder.text = (TextView) rowView.findViewById(R.id.pkmn_name);
+			viewHolder.image = (ImageView) rowView.findViewById(R.id.pkmn_sprite);
 			rowView.setTag(viewHolder);
 		}
 
