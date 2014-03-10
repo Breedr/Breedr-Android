@@ -15,6 +15,7 @@ import android.content.Context;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.stmt.DeleteBuilder;
 import com.j256.ormlite.table.DatabaseTable;
 
 import ed.george.breedr.db.core.DatabaseHelper;
@@ -68,6 +69,10 @@ public class Pokemon {
 
 	//Item heldItem
 
+	public Pokemon() {
+		
+	}
+	
 	//	public Trainer getTrainer() {
 	//		return trainer;
 	//	}
@@ -174,11 +179,35 @@ public class Pokemon {
 
 	//HELPER Methods
 
+	public String getDisplayName() {
+		if(getNickname() != null)
+			return getNickname();
+
+		return getSpecies().getName();
+	}
+
+
 	public static boolean createPokemon(Pokemon pkm, Context ctx){
 
 		try {
 			Dao<Pokemon, Integer> pd = DatabaseHelper.getInstance(ctx).getDao(Pokemon.class);
 			pd.create(pkm);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+		return true;
+
+	}
+
+	public static boolean deletePokemon(Pokemon pkm, Context ctx){
+
+		try {
+			Dao<Pokemon, Integer> pd = DatabaseHelper.getInstance(ctx).getDao(Pokemon.class);
+			DeleteBuilder<Pokemon, Integer> pdb = pd.deleteBuilder();
+			pdb.where().eq("id", pkm.getID());
+			pdb.delete();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
