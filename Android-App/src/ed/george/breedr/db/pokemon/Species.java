@@ -16,6 +16,8 @@ public class Species {
 	@DatabaseField
 	private double femaleRatio;
 	
+	private Type type;
+	
 	
 	
 	//May need intermediate table here
@@ -58,6 +60,10 @@ public class Species {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Type getType() {
+		return type;
 	}
 
 	

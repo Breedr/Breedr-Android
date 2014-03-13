@@ -61,6 +61,10 @@ public class PokemonListAdapter extends BaseAdapter{
 		//Populate views
 		PokemonListViewHolder holder = (PokemonListViewHolder) rowView.getTag();
 		holder.text.setText(pokemon.get(position).getDisplayName());
+		//		holder.type.setBackgroundColor(pokemon.get(position).getSpecies().getType().getColor());
+		
+		
+		
 		//	    if (s.startsWith("Windows7") || s.startsWith("iPhone")
 		//	        || s.startsWith("Solaris")) {
 		//	      holder.image.setImageResource(R.drawable.no);

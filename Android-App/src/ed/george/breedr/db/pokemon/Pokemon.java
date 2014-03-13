@@ -186,26 +186,49 @@ public class Pokemon {
 		return getSpecies().getName();
 	}
 
+	private static Dao<Pokemon, Integer> daoInstance;
+	
+	public static Dao<Pokemon, Integer> getDao(Context ctx) throws SQLException{
+		
+		if(daoInstance != null)
+			return daoInstance;
+		
+		daoInstance = DatabaseHelper.getInstance(ctx).getDao(Pokemon.class);
+		
+		return daoInstance;
+					
+					
+	}
 
-	public static boolean createPokemon(Pokemon pkm, Context ctx){
+	public static boolean createOrUpdatePokemon(Pokemon pkm, Context ctx){
 
 		try {
-			Dao<Pokemon, Integer> pd = DatabaseHelper.getInstance(ctx).getDao(Pokemon.class);
-			pd.create(pkm);
+			getDao(ctx).createOrUpdate(pkm);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
 		}
 
 		return true;
-
 	}
+	
+	public static boolean createPokemon(Pokemon pkm, Context ctx){
+
+		try {
+			getDao(ctx).create(pkm);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+		return true;
+	}
+	
 
 	public static boolean deletePokemon(Pokemon pkm, Context ctx){
 
 		try {
-			Dao<Pokemon, Integer> pd = DatabaseHelper.getInstance(ctx).getDao(Pokemon.class);
-			DeleteBuilder<Pokemon, Integer> pdb = pd.deleteBuilder();
+			DeleteBuilder<Pokemon, Integer> pdb = getDao(ctx).deleteBuilder();
 			pdb.where().eq("id", pkm.getID());
 			pdb.delete();
 		} catch (SQLException e) {
@@ -214,7 +237,6 @@ public class Pokemon {
 		}
 
 		return true;
-
 	}
 
 	public ArrayList<Boolean> getIVs(){
@@ -274,5 +296,7 @@ public class Pokemon {
 			return names;
 		}
 	}
+	
+
 
 }
