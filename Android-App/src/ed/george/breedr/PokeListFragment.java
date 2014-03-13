@@ -19,13 +19,11 @@ public class PokeListFragment extends ListFragment implements LoaderManager.Load
 
 
 	private PokemonListAdapter mListAdapter;
-	private List<Pokemon> data;
+	private List<Pokemon> data = new ArrayList<Pokemon>();
 
 	@Override 
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		
-		data = new ArrayList<Pokemon>();
 		
 		// Initially there is no data 
 		setEmptyText("No Data Here");
@@ -36,7 +34,7 @@ public class PokeListFragment extends ListFragment implements LoaderManager.Load
 		// Start out with a progress indicator.
 		setListShown(false);
 
-		getLoaderManager().initLoader(0, null, this);
+		getLoaderManager().initLoader(0, null, this).forceLoad();
 	}
 
 	@Override 
@@ -52,9 +50,10 @@ public class PokeListFragment extends ListFragment implements LoaderManager.Load
 
 	@Override
 	public void onLoadFinished(Loader<List<Pokemon>> arg0, List<Pokemon> data) {
-		this.data = data;
+		this.data.clear();
+		this.data.addAll(data);
 		mListAdapter.notifyDataSetChanged();
-		
+		Log.i("PokeList", "Load fnished - " + data.size());
 		if (isResumed()) {
 			setListShown(true);
 		
@@ -62,6 +61,7 @@ public class PokeListFragment extends ListFragment implements LoaderManager.Load
 			setListShownNoAnimation(true);
 		}      
 
+		
 	}
 
 	@Override
@@ -75,6 +75,7 @@ public class PokeListFragment extends ListFragment implements LoaderManager.Load
 
 		public PokeListLoader(Context context) {
 			super(context);
+			Log.i("PokeList", "Constructor");
 			mPoke = new ArrayList<Pokemon>();
 		}
 
@@ -109,6 +110,8 @@ public class PokeListFragment extends ListFragment implements LoaderManager.Load
 			List<Pokemon> oldApps = mPoke;
 			mPoke = poke;
 
+			Log.i("PokeList", "Return " + poke.size());
+			
 			if (isStarted()) {
 				// If the Loader is currently started, we can immediately
 				// deliver its results.

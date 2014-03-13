@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import android.content.Context;
 
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.stmt.DeleteBuilder;
 import com.j256.ormlite.table.DatabaseTable;
@@ -27,9 +28,9 @@ public class Pokemon {
 	@DatabaseField(generatedId = true)
 	private int id;
 	//TODO: Make this foreign 
-	@DatabaseField(canBeNull = false, foreign = true)
+	//@DatabaseField(canBeNull = false, foreign = true)
 	private Species species;
-	@DatabaseField(canBeNull = false)
+	@DatabaseField(canBeNull = false, dataType = DataType.ENUM_INTEGER)
 	private Gender gender;
 	@DatabaseField(defaultValue = "1")
 	private int level;

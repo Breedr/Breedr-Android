@@ -78,6 +78,7 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 
 		getSupportActionBar().setHomeButtonEnabled(false);
 
+		
 
 	}
 
