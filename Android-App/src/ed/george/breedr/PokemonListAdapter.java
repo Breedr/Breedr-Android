@@ -49,7 +49,7 @@ public class PokemonListAdapter extends BaseAdapter{
 
 		if (rowView == null) {
 			LayoutInflater inflater = ctx.getLayoutInflater();
-			rowView = inflater.inflate(R.layout.list_poke_main, null);
+			rowView = inflater.inflate(R.layout.list_poke_main, parent, false);
 
 
 			PokemonListViewHolder viewHolder = new PokemonListViewHolder();

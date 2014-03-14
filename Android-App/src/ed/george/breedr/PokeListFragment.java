@@ -11,8 +11,6 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
 import android.util.Log;
-import android.view.View;
-import android.widget.ListView;
 import ed.george.breedr.db.pokemon.Pokemon;
 
 public class PokeListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<List<Pokemon>> {
@@ -37,10 +35,6 @@ public class PokeListFragment extends ListFragment implements LoaderManager.Load
 		getLoaderManager().initLoader(0, null, this).forceLoad();
 	}
 
-	@Override 
-	public void onListItemClick(ListView l, View v, int position, long id) {
-		Log.i("PokeList", "Item clicked: " + id);
-	}
 
 
 	@Override

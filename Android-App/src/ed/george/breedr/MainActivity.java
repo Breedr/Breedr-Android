@@ -74,9 +74,15 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 					.setText(R.string.other_fragment)
 					.setTabListener(this));
 			setHasTabs();
+			
+			
+			
+			
 		}
 
 		getSupportActionBar().setHomeButtonEnabled(false);
+		
+		
 
 		
 
@@ -179,8 +185,8 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 		public Fragment getItem(int position) {
 			switch (position) {
 
-//			case 1:
-//				return new AddPokemonFragment();
+			case 1:
+				return new AddPokemonFragment();
 
 			default:
 				return new PokeListFragment();
