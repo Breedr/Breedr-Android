@@ -1,14 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
-    android:layout_marginTop="5dp"
+    android:minHeight="100dp"
     android:background="@drawable/card_background"
     android:orientation="horizontal" >
 
     <View
         android:id="@+id/pkmn_type"
-        android:layout_width="10dp"
+        android:layout_width="15dp"
         android:layout_height="match_parent"
         android:background="@color/fire" />
 
@@ -17,9 +16,8 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        android:padding="2dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp" >
+        android:padding="5dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"

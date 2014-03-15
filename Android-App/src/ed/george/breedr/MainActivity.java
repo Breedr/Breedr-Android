@@ -74,17 +74,9 @@ public class MainActivity extends BaseActivity implements ActionBar.TabListener,
 					.setText(R.string.other_fragment)
 					.setTabListener(this));
 			setHasTabs();
-			
-			
-			
-			
 		}
 
 		getSupportActionBar().setHomeButtonEnabled(false);
-		
-		
-
-		
 
 	}
 

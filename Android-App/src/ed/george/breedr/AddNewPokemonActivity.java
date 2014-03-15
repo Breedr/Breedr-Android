@@ -1,21 +1,23 @@
 package ed.george.breedr;
 
-import ed.george.breedr.R;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class AddNewPokemonActivity extends BaseActivity{
 
+	AddPokemonFragment fragment; 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
+		fragment = new AddPokemonFragment();
+		
 		if(savedInstanceState == null)
-            getSupportFragmentManager().beginTransaction().add(android.R.id.content, new AddPokemonFragment()).commit();
+            getSupportFragmentManager().beginTransaction().add(android.R.id.content, fragment).commit();
 	}
 	
 	@Override
@@ -27,7 +29,7 @@ public class AddNewPokemonActivity extends BaseActivity{
 	        return true;
 	        
 	    case R.id.add_menu_save:
-	    	Log.e("tag", "derp");
+	    	fragment.savePokemon();
 	    	return true;
 	    }
 	    return super.onOptionsItemSelected(item);

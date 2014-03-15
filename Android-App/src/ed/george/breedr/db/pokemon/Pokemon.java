@@ -283,6 +283,14 @@ public class Pokemon {
 		return ivs;
 	}
 
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
 	public enum Region {
 		ENG, SPA, FRE, GER, ITA, JAP, KOR;
 

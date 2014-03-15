@@ -13,13 +13,14 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.j256.ormlite.dao.Dao;
 
-import ed.george.breedr.R;
 import ed.george.breedr.db.core.DatabaseHelper;
 import ed.george.breedr.db.pokemon.Pokemon;
 import ed.george.breedr.db.pokemon.Species;
+import ed.george.breedr.pokemon.core.Constants.Gender;
 
 public class AddPokemonFragment extends Fragment {
 
@@ -27,6 +28,7 @@ public class AddPokemonFragment extends Fragment {
 	EditText level,nickname;
 	Spinner region;
 	AutoCompleteTextView species;
+	Pokemon pokemon;
 
 
 	@Override
@@ -47,7 +49,7 @@ public class AddPokemonFragment extends Fragment {
 
 		if(speciesAdapter == null)
 			setupSpeciesAdapter();
-		
+
 		if(regionAdapter == null)
 			setupRegionAdapter();
 
@@ -89,46 +91,71 @@ public class AddPokemonFragment extends Fragment {
 
 				try{	
 					//TODO: make this more efficient
-					
+
 					Dao<Species, Integer> sd = DatabaseHelper.getInstance(getActivity()).getDao(Species.class);
 					List<Species> species_list = sd.queryForAll();
-					
+
 					final String[] species_list_name = new String[species_list.size()];
-					
+
 					for(int i = 0; i < species_list.size(); i++){
-						
+
 						species_list_name[i] = species_list.get(i).getName();
-						
+
 					}
 
 					getActivity().runOnUiThread(new Runnable() {
 						public void run() {
-							
+
 							speciesAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, species_list_name);
 							species.setAdapter(speciesAdapter);
 						}
 					});
-					
+
 				}catch(Exception e){
 					e.printStackTrace();	
 				}
 			}
 		}).start();
 	}
-	
-	
+
+
 	private void createPokemon(final Pokemon pkm){
+		if(Pokemon.createPokemon(pkm, getActivity())){
+			//TODO: Pokemon added
+
+			getActivity().runOnUiThread(new Runnable() {
+				public void run() {
+					Toast.makeText(getActivity(), "Pokemon Added", Toast.LENGTH_SHORT).show();
+
+					getActivity().finish();
+				}
+			});
+
+
+		}else{
+			//TODO: error handling
+		}
+	}
+
+	public void savePokemon() {
 		new Thread(new Runnable() {
 			public void run() {
-				
-				if(Pokemon.createPokemon(pkm, getActivity())){
-					//TODO: Pokemon added
+				if(validateFields()){
+					createPokemon(pokemon);
 				}else{
-					//TODO: error handling
+
 				}
-				
 			}
 		}).start();
 	}
-	
+
+	protected boolean validateFields() {
+		//TODO: validate rules
+		pokemon = new Pokemon();
+		pokemon.setGender(Gender.MALE);
+		pokemon.setLevel(Integer.parseInt(level.getText().toString()));
+		pokemon.setNickname(nickname.getText().toString());
+		return true;
+	}
+
 }

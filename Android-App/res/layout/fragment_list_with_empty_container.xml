@@ -29,6 +29,7 @@
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:dividerHeight="20dp"
         android:cacheColorHint="@android:color/white"
         android:drawSelectorOnTop="false" />
     <!-- android:divider="@drawable/list_divider_holo_light" -->
