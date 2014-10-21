@@ -120,7 +120,7 @@ public class AddPokemonFragment extends Fragment {
 
 
 	private void createPokemon(final Pokemon pkm){
-		if(Pokemon.createPokemon(pkm, getActivity())){
+		if(Pokemon.create(pkm, getActivity())){
 			//TODO: Pokemon added
 
 			getActivity().runOnUiThread(new Runnable() {

@@ -31,11 +31,10 @@ public class PokeListFragment extends ListFragment implements LoaderManager.Load
 
 		// Start out with a progress indicator.
 		setListShown(false);
-
+		getListView().setDividerHeight(15);
+		
 		getLoaderManager().initLoader(0, null, this).forceLoad();
 	}
-
-
 
 	@Override
 	public Loader<List<Pokemon>> onCreateLoader(int arg0, Bundle arg1) {
@@ -54,7 +53,6 @@ public class PokeListFragment extends ListFragment implements LoaderManager.Load
 		} else {
 			setListShownNoAnimation(true);
 		}      
-
 		
 	}
 
@@ -103,8 +101,6 @@ public class PokeListFragment extends ListFragment implements LoaderManager.Load
 
 			List<Pokemon> oldApps = mPoke;
 			mPoke = poke;
-
-			Log.i("PokeList", "Return " + poke.size());
 			
 			if (isStarted()) {
 				// If the Loader is currently started, we can immediately

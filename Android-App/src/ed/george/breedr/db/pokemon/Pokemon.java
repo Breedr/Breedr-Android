@@ -213,7 +213,7 @@ public class Pokemon {
 		return true;
 	}
 	
-	public static boolean createPokemon(Pokemon pkm, Context ctx){
+	public static boolean create(Pokemon pkm, Context ctx){
 
 		try {
 			getDao(ctx).create(pkm);
@@ -226,7 +226,7 @@ public class Pokemon {
 	}
 	
 
-	public static boolean deletePokemon(Pokemon pkm, Context ctx){
+	public static boolean delete(Pokemon pkm, Context ctx){
 
 		try {
 			DeleteBuilder<Pokemon, Integer> pdb = getDao(ctx).deleteBuilder();
